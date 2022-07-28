@@ -1,0 +1,30 @@
+<h2>Playlists List</h2>
+
+<div class="table-responsive">
+<table class="table table-striped ">
+<thead class="table-dark ">
+  <tr>
+    <th></th>
+    <th>id</th>
+    <th>name</th>
+    <th>description</th>
+    <th>songs</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor= "let playlist of playlists">
+    <td>
+      <button (click)="deletePlaylist(playlist.name)" class="btn btn-danger col-md-12" >Delete</button>
+      <button (click)="getPlaylistByName(playlist.name)" class="btn btn-info col-md-12" >Show</button>
+    </td>
+    <td>{{playlist.id}}</td>
+    <td>{{playlist.name}}</td>
+    <td>{{playlist.description}}</td>
+    <td *ngFor= "let song of playlist.songs">
+    {{song.id}} {{song.title}} {{song.artist}} {{song.album}} {{song.year}} {{song.category}}
+    </td>
+  </tr>
+</tbody>
+
+</table>
+</div>
